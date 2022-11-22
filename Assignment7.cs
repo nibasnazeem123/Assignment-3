@@ -14,12 +14,15 @@ class StudentSwap
         Console.WriteLine("Enter the mark");
         mark = int.Parse(Console.ReadLine());
     }
-    public void swap(StudentSwap val,StudentSwap val2)
+    public void swap(StudentSwap val, StudentSwap val2)
     {
         StudentSwap temp = new StudentSwap();
         temp = val;
         val = val2;
         val2 = temp;
+        Console.WriteLine("After Swapping");
+        val.display();
+        val2.display();
     }
     public void display()
     {
@@ -40,10 +43,8 @@ class Program
         Console.WriteLine("Before Swapping");
         s1.display();
         s2.display();
-        s1.swap(s1,s2);
-        Console.WriteLine("After Swapping");
-        s1.display();
-        s2.display();
+        s1.swap(s1, s2);
+        
         Console.ReadLine();
     }
 }
