@@ -1,3 +1,5 @@
+using System;
+
 class Consumer
 {
     private int consumer_Id;
@@ -44,18 +46,19 @@ class Consumption
     public void Consumption_Display()
     {
         Console.WriteLine("Units Consumed: {0}", unit_Consumed);
+       
     }
 }
 
 class Bill : Consumer
 {
     private double amount;
-
+    public int uc;
     public Bill(int id, string name, int p, int c) : base(id, name)
     {
         Consumption con = new Consumption(p, c);
         con.Consumption_Read();
-        con.Consumption_Calculate();
+        uc= con.Consumption_Calculate();
         con.Consumption_Display();
         Bill_Calculate();
         Bill_Display();
@@ -63,7 +66,7 @@ class Bill : Consumer
 
     public double Bill_Calculate()
     {
-        return amount = unit_Consumed * 0.5;
+        return amount = uc * 0.5;
     }
 
     public void Bill_Display()
